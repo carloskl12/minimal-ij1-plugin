@@ -1,19 +1,19 @@
 Versión original del proyecto en inglés [minimal plugin](https://github.com/imagej/minimal-ij1-plugin)
 
-Esta es la estructuctura mínima para la implementación de un proyecto con Mavene de un plugin para ImageJ 1.x.
+Esta es la estructuctura mínima para la implementación de un proyecto con Maven de un plugin para ImageJ 1.x.
 
-Se pretende que sea un punto de partida ideal para desarrollar nuevos plugins para ImagJ 1.x en un IDE de su elección. Es posible colaborar con desarrolladores que trabajan con un IDE diferente al suyo.
+Se pretende que sea un punto de partida ideal para desarrollar nuevos plugins para ImageJ 1.x en un IDE de su elección. Es posible colaborar con desarrolladores que trabajan con un IDE diferente al suyo.
 
 En [Eclipse](http://eclipse.org), por ejemplo, esto es tan simple como
 _File&gt;Import...&gt;Existing Maven Project_
 
-En [Netbeans](http://netbeans.org), es incluso mas simple: _File&gt;Open_
+En [Netbeans](http://netbeans.org), es incluso más simple: _File&gt;Open_
 Project. De igual forma en [IntelliJ](http://jetbrains.net).
 
 Si [jEdit](http://jedit.org) es su IDE preferido, necesita instalar [Maven
 Plugin](http://plugins.jedit.org/plugins/?MavenPlugin).
 
-Programadores reveldes en línea de comandos pueden usar directamente  Maven 
+Programadores rebeldes en línea de comandos pueden usar directamente  Maven 
 llamando _mvn_ en el directorio raiz.
 
 No obstante, al generar el proyecto, al final tendrá el archivo ```.jar```
@@ -28,7 +28,7 @@ Desarrollar plugins en un IDE es conveniente, especialmente para la fase de
 depuración (debugging). Para hacer debugging, el plugin contiene el método
 _main()_ que establece la propiedad del sistema _plugins.dir_ (de modo que el 
 plugin se agrega al menu Plugins), inicia ImageJ, carga una imagen y corre el plugin.
-Mirar tambien [this page](fiji.sc/Debugging#Debugging_plugins_in_an_IDE_.28Netbeans.2C_IntelliJ.2C_Eclipse.2C_etc.29)
+Mirar tambien [esta página](fiji.sc/Debugging#Debugging_plugins_in_an_IDE_.28Netbeans.2C_IntelliJ.2C_Eclipse.2C_etc.29)
 para información de cómo hacer en Fiji para el debugging usando un IDE.
 
 Dado que este proyecto pretende ser un punto de partida para sus propios desarrollos,
@@ -49,7 +49,7 @@ Entonces:
     1. el *artifactId* (**Nota**: debe contener un caracter'_'), nombre del plugin.
     2. el *groupId* (opcional)
     3. la *version* (notar que tipicamente cuando se desea usar un número de versión
-     como sufijo,*_SNAPSHOT*, es  para indicar que el trabajo está progreso en lugar de ser una versión final)
+     como sufijo,*_SNAPSHOT*, es  para indicar que el trabajo está en progreso en lugar de ser una versión final)
     4. las *dependencies* (leer como especificar correctamente la terna *groupId/artifactId/version* 
        [aquí](http://fiji.sc/Maven#How_to_find_a_dependency.27s_groupId.2FartifactId.2Fversion_.28GAV.29.3F))
     5.  *developer*, información del desarrollador.
