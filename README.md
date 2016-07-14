@@ -1,83 +1,82 @@
-This is a minimal Maven project implementing an ImageJ 1.x plugin
+Versión original del proyecto en inglés [minimal plugin](https://github.com/imagej/minimal-ij1-plugin)
 
-It is intended as an ideal starting point to develop new ImageJ 1.x plugins
-in an IDE of your choice. You can even collaborate with developers using a
-different IDE than you.
+Esta es la estructuctura mínima para la implementación de un proyecto con Mavene de un plugin para ImageJ 1.x.
 
-In [Eclipse](http://eclipse.org), for example, it is as simple as
+Se pretende que sea un punto de partida ideal para desarrollar nuevos plugins para ImagJ 1.x en un IDE de su elección. Es posible colaborar con desarrolladores que trabajan con un IDE diferente al suyo.
+
+En [Eclipse](http://eclipse.org), por ejemplo, esto es tan simple como
 _File&gt;Import...&gt;Existing Maven Project_
 
-In [Netbeans](http://netbeans.org), it is even simpler: _File&gt;Open_
-Project. The same works in [IntelliJ](http://jetbrains.net).
+En [Netbeans](http://netbeans.org), es incluso mas simple: _File&gt;Open_
+Project. De igual forma en [IntelliJ](http://jetbrains.net).
 
-If [jEdit](http://jedit.org) is your preferred IDE, you will need the [Maven
+Si [jEdit](http://jedit.org) es su IDE preferido, necesita instalar [Maven
 Plugin](http://plugins.jedit.org/plugins/?MavenPlugin).
 
-Die-hard command-line developers can use Maven directly by calling _mvn_
-in the project root.
+Programadores reveldes en línea de comandos pueden usar directamente  Maven 
+llamando _mvn_ en el directorio raiz.
 
-However you build the project, in the end you will have the ```.jar``` file
-(called *artifact* in Maven speak) in the _target/_ subdirectory.
+No obstante, al generar el proyecto, al final tendrá el archivo ```.jar```
+(llamado *artifact* en la jerga Maven) en el subdirectorio _target/_
 
-To copy the artifact into the correct place, you can call ```mvn
--Dimagej.app.directory=/path/to/Fiji.app/```. This will not only copy your
-artifact, but also all the dependencies. Restart your ImageJ or call
-*Help>Refresh Menus* to see your plugin in the menus.
+Para copiar el *artifact* en el lugar correcto, se debe llamar ```mvn
+-Dimagej.app.directory=/path/to/Fiji.app/```. Esto no solamente copia el artifact,
+si no tambien todas las dependencias. Para notar los cambios, reiniciar ImageJ o 
+realizar *Help>Refresh Menus* para mirar su plugin en los menus.
 
-Developing plugins in an IDE is convenient, especially for debugging. To
-that end, the plugin contains a _main()_ method which sets the _plugins.dir_
-system property (so that the plugin is added to the Plugins menu), starts
-ImageJ, loads an image and runs the plugin. See also
-[this page](fiji.sc/Debugging#Debugging_plugins_in_an_IDE_.28Netbeans.2C_IntelliJ.2C_Eclipse.2C_etc.29)
-for information how Fiji makes it easier to debug in IDEs.
+Desarrollar plugins en un IDE es conveniente, especialmente para la fase de 
+depuración (debugging). Para hacer debugging, el plugin contiene el método
+_main()_ que establece la propiedad del sistema _plugins.dir_ (de modo que el 
+plugin se agrega al menu Plugins), inicia ImageJ, carga una imagen y corre el plugin.
+Mirar tambien [this page](fiji.sc/Debugging#Debugging_plugins_in_an_IDE_.28Netbeans.2C_IntelliJ.2C_Eclipse.2C_etc.29)
+para información de cómo hacer en Fiji para el debugging usando un IDE.
 
-Since this project is intended as a starting point for your own
-developments, it is in the public domain.
+Dado que este proyecto pretende ser un punto de partida para sus propios desarrollos,
+este es de dominio público
 
-How to use this project as a starting point
-===========================================
+Cómo usar este proyecto como punto de partida
+=============================================
 
-Either
+Ya sea
 
-* ```git clone git://github.com/imagej/minimal-ij1-plugin```, or
-* unpack https://github.com/imagej/minimal-ij1-plugin/archive/master.zip
+* ```git clone git://github.com/imagej/minimal-ij1-plugin```, o
+* Descomprimir https://github.com/imagej/minimal-ij1-plugin/archive/master.zip
 
-Then:
+Entonces:
 
-1. Edit the ```pom.xml``` file. Every entry should be pretty self-explanatory.
-   In particular, change
-    1. the *artifactId* (**NOTE**: should contain a '_' character)
-    2. the *groupId* (optional)
-    3. the *version* (note that you typically want to use a version number
-       ending in *-SNAPSHOT* to mark it as a work in progress rather than a
-       final version)
-    4. the *dependencies* (read how to specify the correct
-       *groupId/artifactId/version* triplet
-       [here](http://fiji.sc/Maven#How_to_find_a_dependency.27s_groupId.2FartifactId.2Fversion_.28GAV.29.3F))
-    5. the *developer* information
-    6. the *scm* information
-2. Remove the ```Process_Pixels.java``` file and add your own ```.java``` files
-   to ```src/main/java/<package>/``` (if you need supporting files -- like icons
-   -- in the resulting ```.jar``` file, put them into ```src/main/resources/```)
-3. Edit ```src/main/resources/plugins.config```
-4. Replace the contents of ```README.md``` with information about your project.
+1. Editar el archivo ```pom.xml```. Cada entrada debe ser bastante autoexplicativa.
+   En particular, cambiar:
+    1. el *artifactId* (**Nota**: debe contener un caracter'_'), nombre del plugin.
+    2. el *groupId* (opcional)
+    3. la *version* (notar que tipicamente cuando se desea usar un número de versión
+     como sufijo,*_SNAPSHOT*, es  para indicar que el trabajo está progreso en lugar de ser una versión final)
+    4. las *dependencies* (leer como especificar correctamente la terna *groupId/artifactId/version* 
+       [aquí](http://fiji.sc/Maven#How_to_find_a_dependency.27s_groupId.2FartifactId.2Fversion_.28GAV.29.3F))
+    5.  *developer*, información del desarrollador.
+    6. *scm* información scm.
+2. Eliminar el archivo ```Process_Pixels.java``` y crear su archivo ```.java```  en
+   ```src/main/java/<package>/``` (si necesita archivos de soporte como iconos en el resultado ```.jar```,
+   colocarlos en ```src/main/resources/```)
+3. Editar ```src/main/resources/plugins.config```
+4. Reemplazar el contenido de ```README.md``` con la información acerca de su proyecto.
 
-If you cloned the ```minimal-ij1-plugin``` repository, you probably want to
-publish the result in your own repository:
+Si clonó el repositorio ```minimal-ij1-plugin```, probablemente desea publicar los 
+resultados en su propio repositorio:
 
-1. Call ```git status``` to verify .gitignore lists all the files (or file
-   patterns) that should be ignored
-2. Call ```git add .``` and ```git add -u``` to stage the current files for
-   commit
-3. Call ```git commit``` or ```git gui``` to commit the changes
-4. [Create a new GitHub repository](https://github.com/new)
-5. ```git remote set-url origin git@github.com:<username>/<projectname>```
-6. ```git push origin HEAD```
+1. Llamar ```git status``` para verificar la lista de archivos modificados y que no 
+    se deben ignorar (patrones de los archivos a ignorar se dan en .gitignore)
+2. Llamar ```git add .``` y ```git add -u``` para  preparar los archivos actuales
+    para un commit (en jerga de github, un commit es cuando se aceptan los cambios realizados)
+3. Llamar ```git commit``` o ```git gui``` para realizar el commit.
+4. [Crear un nuevo repositorio en GitHub](https://github.com/new)
+5. ```git remote set-url origin git@github.com:<username>/<projectname>``` Enlaza con el repositorio
+    remoto.
+6. ```git push origin HEAD``` , sube los archivos.
 
-### Eclipse: To ensure that Maven copies the plugin to your Fiji folder 
+### Eclipse:  Para asegurarse que Maven haga las copias en su carpeta de Fiji 
 
-1. Go to _Run Configurations..._
-2. Choose _Maven Build_
-2. Add the following parameter: name: ```imagej.app.directory``` value: ```/path/to/Fiji.app/```
+1. Ir a _Run Configurations..._
+2. Escoger _Maven Build_
+2. Agregar los siguientes parámetros: name: ```imagej.app.directory``` value: ```/path/to/Fiji.app/```
 
-This ensures that the final ```.jar``` file will also be copied to your Fiji plugins folder everytime you run the Maven Build
+Esto asegura que el archivo final ```.jar``` también sea copiado en su carpeta de plugins de Fiji cada vez que Maven construye el proyecto.
